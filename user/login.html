@@ -45,32 +45,32 @@
             <a class="tab_user fa fa-user" href="../user/index.html"><span>会员中心</span></a>
         </footer>
     </div>
-    <script src="../js/jquery.1.11.js"></script>
+    <script src="../js/jquery.min.js"></script>
     <script src="../res/mui/js/mui.min.js"></script>
     <script>
-    //登录功能
-    //获取数据
-    $('form').on('submit',function(){
-        //ajax发送请求
-        var data = $(this).serialize();
-        // serialize是获取整个表单数据的方法
-        $.ajax({
-            url:'/api/user/login',
-            type:'post',
-            data:data,
-            success:function(info){
-                 // 等待服务器响应
-                console.log(info)
-                 // 处理登陆后的结果
-                 location.href = '../index.html';
-            }
-            
+        //登录功能
+        //获取数据
+        $('form').on('submit', function () {
+            //ajax发送请求
+            var data = $(this).serialize();
+            // serialize是获取整个表单数据的方法
+            $.ajax({
+                url: '/api/user/login',
+                type: 'post',
+                data: data,
+                success: function (info) {
+                    // 等待服务器响应
+                    console.log(info)
+                    // 处理登陆后的结果
+                    location.href = '../index.html';
+                }
+            })
+            return false;
+            // 阻止表单的默认提交
         })
-        return false;
-        // 阻止表单的默认提交
-    })
-   
-   
+        
+        
+
     </script>
 </body>
 

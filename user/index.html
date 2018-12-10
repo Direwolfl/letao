@@ -56,13 +56,21 @@
 <script src="../js/jquery.1.11.js"></script>
 <script src="../res/mui/js/mui.min.js"></script>
 <script>
-      $.ajax({
-        url:'/api/user/queryUserMessage',
-        type:'get',
-        success:function(info){
-            console.log(info)
-        }
-    });
+       $.ajax({
+            // url: 'http://localhost:3000/user/queryUserMessage',
+            // 使用 反向代理解决跨域
+            url: '/api/user/queryUserMessage',
+            type: 'get',
+            success: function (info) {
+
+                // 2. 根据响应结果判断是否登录
+                console.log(info);
+                if(info.error) {
+                    location.href = '/user/login.html';
+                }
+            }
+        });
+
 </script>
 </body>
 </html>
